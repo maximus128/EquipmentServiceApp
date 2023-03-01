@@ -10,7 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
     @GetMapping("/hello")
     public String sayHello(){
-        return "hello";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        AppUserDetails appUserDetails = (AppUserDetails)authentication.getPrincipal();
+        if (appUserDetails.getAppUser().getRole().equals("ROLE_ADMIN"))
+            return "admin/hello";
+        else if (appUserDetails.getAppUser().getRole().equals("ROLE_MANAGER"))
+            return "manager/hello";
+        else if (appUserDetails.getAppUser().getRole().equals("ROLE_CUSTOMER"))
+            return "customer/hello";
+        else
+            return "hello";
     }
 
     @GetMapping("/showAppUserInfo")
@@ -21,4 +30,5 @@ public class HelloController {
 
         return "hello";
     }
+
 }

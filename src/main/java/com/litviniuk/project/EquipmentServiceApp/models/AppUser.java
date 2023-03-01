@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "person")
+@Table(name = "app_user")
 public class AppUser {
 
     @Id
@@ -25,13 +25,15 @@ public class AppUser {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
+    private String role;
+
     public AppUser() {
     }
     public AppUser(String username, int phoneNumber) {
         this.username = username;
         this.phoneNumber = phoneNumber;
     }
-
     public int getId() {
         return id;
     }
@@ -62,6 +64,14 @@ public class AppUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override

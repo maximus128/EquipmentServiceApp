@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Admin page</title>
 </head>
 <body>
-Hello User Losers!
+Hello, Admin !
+<br/>
+<hr/>
+<a href="/auth/registration">Create new app user</a>
+
 <form th:action="@{/logout}" th:method="POST">
     <input type="submit" value="Logout" />
 </form>

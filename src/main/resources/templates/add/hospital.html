@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AddHospital</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/add/hospital}" th:object="${hospital}">
+    <label for="hospitalName">Enter Hospital username: </label>
+    <input type="text" th:field="*{hospitalName}" id="hospitalName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('hospitalName')}" th:errors="*{hospitalName}">Username Error
+    </div>
+    <label for="hospitalPhoneNumber">Enter Hospital phone number: </label>
+    <input type="text" th:field="*{hospitalPhoneNumber}" id="hospitalPhoneNumber"/>
+    <div style="color:red" th:if="${#fields.hasErrors('hospitalPhoneNumber')}" th:errors="*{hospitalPhoneNumber}">Year Error
+    </div>
+    <br/>
+
+    <input type="submit" value="Sing up!"/>
+</form>
+</body>
+</html>
